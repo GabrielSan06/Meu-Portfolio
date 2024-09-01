@@ -212,7 +212,7 @@ section.sobre .flex{
     text-align: justify;  /* Deixando o final da linha do texto todas alinhadas */
 }
 
-.sobre .txt-sobre .btn-social button{
+.btn-social button{
     width: 60px;
     height: 60px;
     border-radius: 50%;
@@ -283,7 +283,6 @@ section.portfolio .flex{
 /* ESTILO DO FORMULÁRIO */
 section.formulario{
     padding: 80px 4%;
-
 }
 
 form{
@@ -338,5 +337,22 @@ footer{
 }
 
 footer .flex{
-      justify-content: space-between;
+    justify-content: space-between;
+}
+
+footer .line-footer{
+    padding: 20px 0;
+}
+
+.borda{
+    border-top: 2px solid #00ffff;
+}
+
+footer .line-footer p i{
+    color: #00ffff;
+    font-size: 22px;
+}
+
+footer .line-footer p a{
+    color: #fff;
 }
