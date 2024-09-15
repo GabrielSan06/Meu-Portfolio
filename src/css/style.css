@@ -154,6 +154,11 @@ header nav.menu-desktop ul li {
 }
 
 /* ESTILO DO TOPO DO SITE */
+.logo a img, .line-footer .logo img {
+    width: 140px;
+    height: auto;
+}
+
 section.topo-do-site {
     padding: 40px 4%;
 }
