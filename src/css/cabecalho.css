@@ -1,0 +1,34 @@
+/* ESTILO DO CABEÇALHO */
+header {
+    padding: 40px 4%; /* para que não fique colada no topo (40px) nem nas laterais (4%) */
+}
+
+/* Chamando a classe que está diretamente dentro do header (Utilizando o sinal de "maior que" para que ele procure os elementos que possuem a classe desejada*/
+header>.interface {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Estilizando todos os links dentro do header */
+header a {
+    color: #7d7d7d; /* #5c5c5c - mais escuro*/
+    text-decoration: none; /* Tirando o sublinhado do nav */
+    display: inline-block; /* Propriedade necessária para que o "transform" funcione */
+    transition: .2s;
+}
+
+/* Alterando estilo quando o cursor está sobre */
+header a:hover {
+    color: #fff;
+    transform: scale(1.05); /* Aumentando o tamanho */
+}
+
+header nav ul {
+    list-style-type: none;
+}
+
+header nav.menu-desktop ul li {
+    display: inline-block; /* Colocando os elementos do nav, um ao lado do outro */
+    padding: 0 40px; /* Aumentando o espaçamento entre os elementos do nav */
+}
