@@ -30,6 +30,11 @@ a {
     display: flex;
 }
 
+.logo img {
+    height: 70px;
+    width: auto;
+}
+
 /* Aplicando estilo ao  botão "contato" */
 .meu-contato button {
     padding: 10px 40px;
