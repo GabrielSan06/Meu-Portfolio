@@ -1,6 +1,10 @@
 /* ctrl + ; para comentário */
 
 /* ESTILO GERAL */
+html {
+    scroll-behavior: smooth;
+  }
+  
 /* Resetando o documento e substituindo a cor de fundo por preto */
 * {
     margin: 0;

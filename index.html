@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="src/css/formulario.css">
 
     <script src="menu.js" defer></script>
+    <script src="formulario.js"></script>
 
     <title>Gabriel de Santana - Desenvolvedor</title>
 </head>
@@ -38,15 +39,15 @@
 
             <nav class="menu-desktop">
                 <ul>
-                    <li><a href="#">Início</a></li>
-                    <li><a href="#">Habilidades</a></li>
-                    <li><a href="#">Sobre</a></li>
-                    <li><a href="#">Projetos</a></li>
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#habilidades">Habilidades</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#projetos">Projetos</a></li>
                 </ul>
             </nav>
 
             <div id="btn-contato" class="meu-contato">
-                <a href="#">
+                <a href="#fale-comigo">
                     <button>Contato</button>
                 </a>
             </div>
@@ -86,7 +87,7 @@
                         <p> <span>Hello World!</span> Sou João Gabriel de Santana, estudante de Análise e Desenvolvimento de sistemas e estou explorando meu potencial como desenvolvedor!</p>
                         
                         <div class="meu-contato">
-                            <a href="#">
+                            <a href="#fale-comigo">
                                 <button>Entre em contato</button>
                             </a>
                         </div>
@@ -210,12 +211,12 @@
             <div class="interface">
                 <h2 class="titulo">FALE <span>COMIGO.</span></h2>
 
-                <form action="">
-                    <input type="text" placeholder="Seu nome completo:" required>
-                    <input type="text" placeholder="Seu e-mail:" required>
-                    <input type="text" placeholder="Seu celular:">
-                    <textarea placeholder="Sua mensagem:" required></textarea>
-                    <div class="btn-enviar"><input type="submit" value="ENVIAR"></div>
+                <form id="formulario" action="">
+                    <input id="nome" type="text" placeholder="Seu nome completo:" required>
+                    <input id="email" type="text" placeholder="Seu e-mail:" required>
+                    <input id="celular" type="text" placeholder="Seu celular:">
+                    <textarea id="mensagem" placeholder="Sua mensagem:" required></textarea>
+                    <div class="btn-enviar"><input id="enviar" type="submit" value="ENVIAR"></div>
                 </form>
 
             </div>
