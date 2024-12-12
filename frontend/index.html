@@ -23,7 +23,6 @@
     <link rel="stylesheet" href="src/css/formulario.css">
 
     <script src="menu.js" defer></script>
-    <script src="formulario.js"></script>
 
     <title>Gabriel de Santana - Desenvolvedor</title>
 </head>
@@ -222,17 +221,23 @@
         <section id="fale-comigo" class="formulario">
             <div class="interface">
                 <h2 class="titulo">FALE <span>COMIGO.</span></h2>
-
-                <form id="formulario" action="">
+        
+                <form id="formulario">
                     <input id="nome" type="text" placeholder="Seu nome completo:" required>
-                    <input id="email" type="text" placeholder="Seu e-mail:" required>
-                    <input id="celular" type="text" placeholder="Seu celular:">
+                    <input id="email" type="email" placeholder="Seu e-mail:" required>
                     <textarea id="mensagem" placeholder="Sua mensagem:" required></textarea>
-                    <div class="btn-enviar"><input id="enviar" type="submit" value="ENVIAR"></div>
+                    <div class="btn-enviar">
+                        <input id="enviar" type="submit" value="ENVIAR">
+                    </div>
                 </form>
-
+                
+                <!-- Div para mostrar a mensagem de sucesso -->
+                <div id="mensagem-sucesso" style="display: none; color: green; font-weight: bold;"></div>
+                <div id="mensagem-erro" style="display: none; color: red; font-weight: bold;"></div>
             </div>
         </section>
+        <script src="formulario.js"></script>
+        
     </main>
 
     <footer>
