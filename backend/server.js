@@ -1,58 +1,62 @@
-const express = require('express');
-const nodemailer = require('nodemailer');
-const bodyParser = require('body-parser');
+const express = require("express");
+const bodyParser = require("body-parser");
 const cors = require('cors');
-const dotenv = require('dotenv');
+const axios = require('axios');
+require('dotenv').config();  // Carrega variáveis do .env
 
-// Carrega as variáveis de ambiente do arquivo .env
-require('dotenv').config();
-
-// Configuração do servidor
 const app = express();
-const port = process.env.PORT || 3000;
+app.use(cors({ origin: 'http://localhost:5500' }));
+app.use(bodyParser.json());
 
-// Middleware para processar os dados do formlário
-app.use(cors()); // Permite requisições de diferentes origens
-app.use(bodyParser.json()); // Faz o parser dos dados JSON enviados no corpo da requisição
-// app.use(bodyParser.urlencoded({extended: true }));
-
-// Configuração do transporte do email com Nodemailer
-const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS
-    }
+app.use((req, res, next) => {
+    res.header("X-Frame-Options", "DENY");
+    res.header("X-XSS-Protection", "1; mode=block");
+    res.header("X-Content-Type-Options", "nosniff");
+    res.header("Referrer-Policy", "no-referrer");
+    next();
 });
 
-// Rota para lidar com o envio do formulário
-app.post("/enviar email", (req, res) => {
-    const { nome, email, celular, mensagem } = req.body;
 
-    const mailOptions = {
-        from: process.env.EMAIL,
-        to: process.env.EMAIL,
-        subject: `Nova mensagem de ${nome}`,
-        text: `Você recebeu uma nova mensagem do formulário de contato.
-        
-        Nome: ${nome}
-        E-mail: ${email}
-        Celular: ${celular}
-        Mensagem: ${mensagem}`,
+app.get("/", (req, res) => {
+    res.send("Servidor está funcionando!");
+});
+
+let formularioData = [];
+
+app.post("/save", (req, res) => {
+    const { nome, email, mensagem } = req.body;
+
+    if (!nome || !email || !mensagem) {
+        console.log("Erro: Campos obrigatórios estão faltando.");
+        return res.status(400).json({ message: "Nome, E-mail e Mensagem são obrigatórios!" });
+    }
+
+    console.log("Dados recebidos:", { nome, email, mensagem });
+
+    formularioData.push({ nome, email, mensagem });
+
+    // Configuração do email
+    const data = {
+        service_id: process.env.SERVICE_ID,
+        template_id: process.env.TEMPLATE_ID,
+        user_id: process.env.USER_ID,
+        template_params: {
+            nome: nome,
+            email: email,
+            mensagem: mensagem
+        }
     };
 
-    // Envia email usando nodemailer
-    transporter.sendMail(mailOptions, (error, info) => {
-        if (error) {
-            console.log("Erro ao enviar e-mail: ", error);
-            return res.status(500).json({ status: 'error', message: 'Erro ao enviar o e-mail' });
-        }
-        console.log("Mensagem enviada: ",info.response);
-        res.status(200).json({ status: 'success', message: 'Mensagem enviada com sucesso' });
-    });
+    // Enviar o email usando Axios para a API do EmailJS
+    axios.post('https://api.emailjs.com/api/v1.0/email/send', data)
+        .then(response => {
+            console.log("Email enviado com sucesso:", response.data);
+            res.json({ message: "Dados enviados com sucesso!", data: formularioData });
+        })
+        .catch(error => {
+            console.error("Erro ao enviar o email:", error.response ? error.response.data : error.message);
+            res.status(500).json({ message: "Ocorreu um erro ao enviar os dados. Tente novamente." });
+        });
 });
 
-// Iniciando o servidor
-app.listen(port, () => {
-    console.log(`Servidor rodando na porta ${port}`);
-});
+app.listen(3001, () => console.log("Servidor rodando na porta 3001"));
