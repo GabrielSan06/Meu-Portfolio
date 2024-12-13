@@ -1,0 +1,103 @@
+/* ESTILO DO TOPO DO SITE */
+section.topo-do-site {
+    padding: 40px 4%;
+}
+
+section.topo-do-site .flex {
+    align-items: center;
+    justify-content: center;
+    gap: 90px;
+}
+
+.topo-do-site h1 {
+    color: #fff;
+    font-size: 42px;
+    line-height: 40px;
+}
+
+.topo-do-site .txt-topo-site h1 span {
+    /* color: #00ffff; */
+    position: relative;
+}
+
+.topo-do-site .txt-topo-site h1 span::before {
+    content: "Data Engineer.";
+    color: #00ffff;
+    animation: words 20s infinite;
+}
+
+.topo-do-site .txt-topo-site h1 span::after {
+    content: "";
+    position: absolute;
+    background-color: #000;
+    width: calc(100% + 8px);
+    height: 90%;
+    border-left: 3px solid #000;
+    right: -8px;
+    animation: cursor 0.6s infinite, typing 25s steps(14) infinite;
+}
+
+/* Configurando o Typing */
+@keyframes cursor {
+    to{
+        border-left: 3px solid #00ffff;
+    }
+}
+
+@keyframes words {
+    0%, 25% {
+        content: "Data Analyst.";
+    }
+    26%, 50% {
+        content: "Data Engineer.";
+    }
+    51%, 75% {
+        content: "BackEnd Developer.";
+    }
+    76%, 100% {
+        content: "Data Scientist.";
+    }
+}
+
+@keyframes typing {
+    10%, 15%, 30%, 35%, 50%, 55%, 70%, 75%, 90%, 95% {
+        width: 0;
+    }
+    5%, 20%, 25%, 40%, 45%, 60%, 65%, 80%, 85% {
+        width: calc(100% + 8px);
+    }
+}
+
+.topo-do-site .txt-topo-site p {
+    color: #fff;
+    margin: 40px 0px;
+}
+
+.topo-do-site .txt-topo-site p span {
+    color: #00ffff;
+}
+
+.topo-do-site .img-topo-site img {
+    height: 500px;
+    width: auto;
+    border-radius: 45px 9px;
+    box-shadow: 0px 0px 8px #00ffff;
+    position: relative; /* Animação só funciona se a posição for diferente da padrão */
+    animation: flutuar 2s ease-in-out infinite alternate; /* animation: NOME DURAÇÃO VELOCIDADE REPETIÇÃO BOOMERANG*/
+}
+
+/* Animando a imagem do site */
+@keyframes flutuar {
+
+    /* Estado inicial (quando entra no site) */
+    0% {
+        /* Distância do topo = 0px */
+        top: 0;
+    }
+
+    /* Quando a animação estiver acabando */
+    100% {
+        /* Distância do topo = 30px */
+        top: 30px;
+    }
+}

@@ -1,0 +1,70 @@
+/* ctrl + ; para comentário */
+
+/* ESTILO GERAL */
+html {
+    scroll-behavior: smooth;
+  }
+  
+/* Resetando o documento e substituindo a cor de fundo por preto */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* todos os elementos dentro da mesma borda da caixa */
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #000000;
+    height: 100zh;
+    /* para tomar todo o espaço da tela */
+}
+
+a {
+    text-decoration: none;
+}
+
+.interface {
+    max-width: 1280px;
+    margin: 0 auto;
+    /* centralizando */
+}
+
+.flex {
+    display: flex;
+}
+
+.logo img {
+    height: 70px;
+    width: auto;
+}
+
+/* Aplicando estilo ao  botão "contato" */
+.meu-contato button {
+    padding: 10px 40px;
+    font-size: 18px;
+    font-weight: 600;
+    background-color: #2affff;
+    border: 0;
+    border-radius: 30px;
+    cursor: pointer;
+    /* Para que o cursor mude para o clicavel */
+    transition: .2s;
+}
+
+h2.titulo {
+    color: #fff;
+    font-size: 38px;
+    text-align: center;
+}
+
+h2.titulo span {
+    color: #00ffff;
+}
+
+button:hover,
+form .btn-enviar input:hover {
+    box-shadow: 0px 0px 8px #00ffff;
+    /* mais claro para a sombra ficar aparente */
+    transform: scale(1.05);
+}
