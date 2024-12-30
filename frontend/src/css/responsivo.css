@@ -44,6 +44,23 @@
         padding: 40px 8%;
     }
 
+    section.habilidades .flex {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .habilidades .habilidades-box {
+        flex-basis: calc(50% - 20px);
+        margin-top: 20px;
+    }
+
+    .habilidades .habilidades-box img {
+        height: 40px; /* Tamanho da imagem */
+        width: auto; /* Mantém a proporção da imagem */
+    }
+
     /* SOBRE */
     section .sobre {
         padding: 80px 8%;

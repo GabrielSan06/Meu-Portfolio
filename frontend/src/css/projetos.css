@@ -10,23 +10,18 @@ section.portfolio .flex {
 }
 
 .img-port {
-    width: 360px;
-    height: 460px;
-    background-color: #00ffff;
-    /* Remover essa linha após substituir as imagens do portfolio */
+    width: 340px;
+    height: 440px;
     background-size: cover;
-    background-position: 100% 0%;
+    background-position: center;
     /* Vertical da imagem no topo */
     transition: 8s;
     cursor: pointer;
     border-radius: 35px;
     position: relative;
     /* Para que o Overlay funcione */
-}
+    box-shadow: 0px 0px 8px #00ffff;
 
-.img-port:hover {
-    background-position: 100% 100%;
-    /* Vertical da imagem no final */
 }
 
 .overlay {
@@ -45,6 +40,9 @@ section.portfolio .flex {
     color: #fff;
     opacity: 0;
     transition: .5s;
+    text-align: center;
+    box-shadow: 0px 0px 8px #00ffff;
+
 }
 
 .overlay:hover {

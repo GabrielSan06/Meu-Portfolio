@@ -4,7 +4,7 @@ section.habilidades {
 }
 
 section.habilidades .flex {
-    gap: 60px;
+    gap: 15px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -15,9 +15,12 @@ section.habilidades .flex {
     color: #fff;
     padding: 40px;
     border-radius: 20px;
-    margin-top: 45px;
+    margin-top: 15px;
     transition: 0.8s;
-    flex-basis: calc(33.3% - 60px);
+    flex-basis: calc(25% - 60px);
+    display: flex;
+    align-items: center;
+    gap: 4px;
 }
 
 .habilidades .habilidades-box:hover {
@@ -26,7 +29,7 @@ section.habilidades .flex {
 }
 
 .habilidades .habilidades-box img {
-    height: 70px;
+    height: 40px;
     width: auto;
     color: #00ffff;
 }
